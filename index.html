@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CG 2026 Semiconductor Master Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  background:#020617;
+  color:#e5e7eb;
+  font-family:Segoe UI, sans-serif;
+}
+header{
+  background:linear-gradient(90deg,#22c55e,#06b6d4);
+  color:#022c22;
+  padding:15px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+}
+.level{display:none;padding:20px;}
+.level.active{display:block;}
+.card{
+  background:#020617;
+  border:1px solid #22c55e;
+  border-radius:12px;
+  padding:15px;
+  margin-bottom:15px;
+}
+.question{font-size:17px;margin-bottom:10px;}
+.options button{
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  background:#020617;
+  color:#e5e7eb;
+  border:1px solid #334155;
+  border-radius:8px;
+}
+.options button:hover{background:#1e293b;}
+.correct{background:#14532d!important;border-color:#22c55e!important;}
+.wrong{background:#7f1d1d!important;border-color:#ef4444!important;}
+.diagram{
+  margin-top:10px;
+  padding:10px;
+  border:1px dashed #22c55e;
+  font-family:monospace;
+  white-space:pre;
+}
+.next{
+  padding:10px 15px;
+  background:#22c55e;
+  color:#022c22;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+}
+.scoreBox{
+  text-align:center;
+  font-size:18px;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+<header>⚡ CG 2026 – SEMICONDUCTOR MASTER GAME ⚡</header>
+
+<script>
+let score=0;
+function correct(b){ if(!b.classList.contains("correct")){b.classList.add("correct");score++;update();}}
+function wrong(b){b.classList.add("wrong");}
+function nextLevel(c,n){document.getElementById(c).classList.remove("active");document.getElementById(n).classList.add("active");}
+function update(){document.getElementById("score").innerText=score;}
+</script>
+
+<div class="scoreBox">Score: <span id="score">0</span> / 25</div>
+
+<!-- LEVEL 1 -->
+<div class="level active" id="L1">
+<h2>LEVEL 1 – BASIC</h2>
+
+<div class="card">
+<div class="question">1. Semiconductor conductivity lies between?</div>
+<div class="options">
+<button onclick="correct(this)">Conductor and Insulator</button>
+<button onclick="wrong(this)">Metal and Alloy</button>
+<button onclick="wrong(this)">Vacuum and Gas</button>
+</div></div>
+
+<div class="card">
+<div class="question">2. Valence electrons in silicon?</div>
+<div class="options">
+<button onclick="wrong(this)">2</button>
+<button onclick="correct(this)">4</button>
+<button onclick="wrong(this)">8</button>
+</div></div>
+
+<div class="card">
+<div class="question">3. Pure semiconductor is called?</div>
+<div class="options">
+<button onclick="correct(this)">Intrinsic</button>
+<button onclick="wrong(this)">Extrinsic</button>
+<button onclick="wrong(this)">Compound</button>
+</div></div>
+
+<div class="card">
+<div class="question">4. Doping means?</div>
+<div class="options">
+<button onclick="correct(this)">Adding impurity</button>
+<button onclick="wrong(this)">Heating crystal</button>
+<button onclick="wrong(this)">Cooling metal</button>
+</div></div>
+
+<div class="card">
+<div class="question">5. Example of semiconductor?</div>
+<div class="options">
+<button onclick="correct(this)">Silicon</button>
+<button onclick="wrong(this)">Copper</button>
+<button onclick="wrong(this)">Glass</button>
+</div></div>
+
+<button class="next" onclick="nextLevel('L1','L2')">NEXT ▶</button>
+</div>
+
+<!-- LEVEL 2 -->
+<div class="level" id="L2">
+<h2>LEVEL 2 – TYPES</h2>
+
+<div class="card">
+<div class="question">6. Majority carrier in n-type?</div>
+<div class="options">
+<button onclick="correct(this)">Electrons</button>
+<button onclick="wrong(this)">Holes</button>
+<button onclick="wrong(this)">Ions</button>
+</div></div>
+
+<div class="card">
+<div class="question">7. Acceptor impurity?</div>
+<div class="options">
+<button onclick="correct(this)">Boron</button>
+<button onclick="wrong(this)">Phosphorus</button>
+<button onclick="wrong(this)">Arsenic</button>
+</div></div>
+
+<div class="card">
+<div class="question">8. Donor impurity?</div>
+<div class="options">
+<button onclick="correct(this)">Phosphorus</button>
+<button onclick="wrong(this)">Boron</button>
+<button onclick="wrong(this)">Aluminium</button>
+</div></div>
+
+<div class="card">
+<div class="question">9. Majority carrier in p-type?</div>
+<div class="options">
+<button onclick="correct(this)">Holes</button>
+<button onclick="wrong(this)">Electrons</button>
+<button onclick="wrong(this)">Protons</button>
+</div></div>
+
+<div class="card">
+<div class="question">10. Extrinsic semiconductor formed by?</div>
+<div class="options">
+<button onclick="correct(this)">Doping</button>
+<button onclick="wrong(this)">Melting</button>
+<button onclick="wrong(this)">Cooling</button>
+</div></div>
+
+<button class="next" onclick="nextLevel('L2','L3')">NEXT ▶</button>
+</div>
+
+<!-- LEVEL 3 -->
+<div class="level" id="L3">
+<h2>LEVEL 3 – ENERGY BAND</h2>
+
+<div class="card">
+<div class="question">11. Forbidden gap lies between?</div>
+<div class="options">
+<button onclick="correct(this)">Valence & Conduction</button>
+<button onclick="wrong(this)">Two conductors</button>
+<button onclick="wrong(this)">Two insulators</button>
+</div>
+<div class="diagram">
+Conduction Band
+================
+   Forbidden Gap
+----------------
+Valence Band
+</div>
+</div>
+
+<div class="card">
+<div class="question">12. Energy gap of semiconductor is?</div>
+<div class="options">
+<button onclick="correct(this)">Small</button>
+<button onclick="wrong(this)">Zero</button>
+<button onclick="wrong(this)">Very large</button>
+</div></div>
+
+<div class="card">
+<div class="question">13. Which band causes conduction?</div>
+<div class="options">
+<button onclick="correct(this)">Conduction band</button>
+<button onclick="wrong(this)">Valence band</button>
+<button onclick="wrong(this)">Forbidden band</button>
+</div></div>
+
+<div class="card">
+<div class="question">14. Insulator energy gap is?</div>
+<div class="options">
+<button onclick="correct(this)">Large</button>
+<button onclick="wrong(this)">Small</button>
+<button onclick="wrong(this)">Zero</button>
+</div></div>
+
+<div class="card">
+<div class="question">15. Energy band theory explains?</div>
+<div class="options">
+<button onclick="correct(this)">Electrical behaviour</button>
+<button onclick="wrong(this)">Atomic mass</button>
+<button onclick="wrong(this)">Colour</button>
+</div></div>
+
+<button class="next" onclick="nextLevel('L3','L4')">NEXT ▶</button>
+</div>
+
+<!-- LEVEL 4 -->
+<div class="level" id="L4">
+<h2>LEVEL 4 – PN JUNCTION</h2>
+
+<div class="card">
+<div class="question">16. Junction of p & n forms?</div>
+<div class="options">
+<button onclick="correct(this)">p-n junction</button>
+<button onclick="wrong(this)">Capacitor</button>
+<button onclick="wrong(this)">Inductor</button>
+</div></div>
+
+<div class="card">
+<div class="question">17. Depletion layer is?</div>
+<div class="options">
+<button onclick="correct(this)">Carrier free region</button>
+<button onclick="wrong(this)">Electron rich</button>
+<button onclick="wrong(this)">Hole rich</button>
+</div></div>
+
+<div class="card">
+<div class="question">18. Potential barrier exists due to?</div>
+<div class="options">
+<button onclick="correct(this)">Depletion layer</button>
+<button onclick="wrong(this)">Battery</button>
+<button onclick="wrong(this)">Resistance</button>
+</div></div>
+
+<div class="card">
+<div class="question">19. In forward bias p-side connects to?</div>
+<div class="options">
+<button onclick="correct(this)">Positive</button>
+<button onclick="wrong(this)">Negative</button>
+<button onclick="wrong(this)">Earth</button>
+</div></div>
+
+<div class="card">
+<div class="question">20. Forward bias effect?</div>
+<div class="options">
+<button onclick="correct(this)">Depletion decreases</button>
+<button onclick="wrong(this)">Depletion increases</button>
+<button onclick="wrong(this)">No change</button>
+</div></div>
+
+<button class="next" onclick="nextLevel('L4','L5')">NEXT ▶</button>
+</div>
+
+<!-- LEVEL 5 -->
+<div class="level" id="L5">
+<h2>LEVEL 5 – APPLICATION</h2>
+
+<div class="card">
+<div class="question">21. Reverse bias depletion layer?</div>
+<div class="options">
+<button onclick="correct(this)">Increases</button>
+<button onclick="wrong(this)">Decreases</button>
+<button onclick="wrong(this)">Vanishes</button>
+</div></div>
+
+<div class="card">
+<div class="question">22. Reverse bias current is?</div>
+<div class="options">
+<button onclick="correct(this)">Very small</button>
+<button onclick="wrong(this)">Large</button>
+<button onclick="wrong(this)">Infinite</button>
+</div></div>
+
+<div class="card">
+<div class="question">23. Diode used as?</div>
+<div class="options">
+<button onclick="correct(this)">Rectifier</button>
+<button onclick="wrong(this)">Amplifier</button>
+<button onclick="wrong(this)">Generator</button>
+</div></div>
+
+<div class="card">
+<div class="question">24. Silicon preferred because?</div>
+<div class="options">
+<button onclick="correct(this)">Thermal stability</button>
+<button onclick="wrong(this)">High cost</button>
+<button onclick="wrong(this)">Low melting point</button>
+</div></div>
+
+<div class="card">
+<div class="question">25. Semiconductor conductivity increases with?</div>
+<div class="options">
+<button onclick="correct(this)">Temperature</button>
+<button onclick="wrong(this)">Pressure</button>
+<button onclick="wrong(this)">Volume</button>
+</div></div>
+
+<h2 style="text-align:center">🏆 GAME COMPLETE – CG READY 🏆</h2>
+</div>
+
+</body>
+</html>
